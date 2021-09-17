@@ -1,0 +1,80 @@
+@import "./variables";
+@import "./extends";
+@import "./mixin";
+
+* {
+  color: $maincolor;
+  font-size: $fontsize;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto 45vw auto;
+  grid-template-rows: auto 45vw auto;
+}
+
+.container > div:not(.nav),
+.nav__list {
+  @extend %box;
+}
+
+.nav {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.box-top {
+  border-bottom: $mainborder;
+}
+
+.box-left {
+  border-right: $mainborder;
+}
+
+.box-bottom {
+  border-top: $mainborder;
+}
+
+.box-right {
+  border-left: $mainborder;
+}
+
+.nav__list:not(:last-child) {
+  border-bottom: $mainborder;
+}
+
+.top-menu:hover,
+.nav__list:hover {
+  background-color: $maincolor;
+  & > span {
+    color: white;
+  }
+}
+
+@keyframes flow {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.exp {
+  overflow: hidden;
+  span {
+    white-space: nowrap;
+    animation: flow 8s linear infinite;
+  }
+}

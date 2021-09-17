@@ -1,0 +1,14 @@
+@mixin gridSize($screen) {
+  @if ($screen == "landscpae") {
+    @media (orietation: landscape) {
+      grid-template-columns: auto 50vw auto;
+      grid-template-rows: auto 50vw auto;
+    }
+  }
+  @if ($screen == "portrait") {
+    @media (orientation: portrait) {
+      grid-template-columns: auto 50vh auto;
+      grid-template-rows: auto 50vh auto;
+    }
+  }
+}
